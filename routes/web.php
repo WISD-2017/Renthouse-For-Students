@@ -39,3 +39,7 @@ Route::get('/bb/b1', function (){
 Route::get('/bb/b2', function (){
     return view('bb.b2');
 });
+
+Route::get('/bb/b3', function (){
+    return view('bb.b3');
+});
