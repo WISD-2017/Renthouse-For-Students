@@ -134,7 +134,88 @@
 <!-- Footer -->
 @include('common.footer')
 
+<script>
+    $(document).ready(function () {
 
+        $('#submit_btn').click(function (event) {
+
+            event.preventDefault();
+
+            $password = $('#password').val();
+            $password2 = $('#password2').val();
+
+            $('.warn-account').html('').hide();
+
+            $('.warn-password').html('').hide();
+
+            $('.warn-password2').html('').hide();
+
+            $('.warn-name').html('').hide();
+
+            $('.warn-email').html('').hide();
+
+            if ($('#account').val() === '') {
+                $('.warn-account').html('請輸入帳號').show();
+                $('#account').css("border-color","rgb(253, 13, 77)");
+                $('#account').css("background-color","rgb(255, 255, 255)");
+            }
+
+            if ($('#password').val() === '') {
+                $('.warn-password').html('請輸入密碼').show();
+                $('#password').css("border-color","rgb(253, 13, 77)");
+                $('#password').css("background-color","rgb(255, 255, 255)");
+            }
+
+            if ($('#password2').val() === '') {
+                $('.warn-password2').html('請輸入確認密碼').show();
+                $('#password2').css("border-color","rgb(253, 13, 77)");
+                $('#password2').css("background-color","rgb(255, 255, 255)");
+            }
+
+            if ($('#name').val() === '') {
+                $('.warn-name').html('請輸入姓名').show();
+                $('#name').css("border-color","rgb(253, 13, 77)");
+                $('#name').css("background-color","rgb(255, 255, 255)");
+            }
+
+            if ($('#email').val() === '') {
+                $('.warn-email').html('請輸入信箱').show();
+                $('#email').css("border-color","rgb(253, 13, 77)");
+                $('#email').css("background-color","rgb(255, 255, 255)");
+            }
+
+
+            if ($('#account').val() !== '' && $('#password').val() !== '' && $('#password2').val() !== '' && $('#name').val() !== '' && $('#email').val() !== ''  ) {
+
+                $('.warn-account').html('').hide();
+
+                $('.warn-password').html('').hide();
+
+                $('.warn-password2').html('').hide();
+
+                $('.warn-name').html('').hide();
+
+                $('.warn-email').html('').hide();
+
+                if($password!=$password2){
+                    alert("密碼輸入不一致，請再次輸入");
+                    document.getElementById('password').value = "";
+                    $('#password').css("border-color","rgb(253, 13, 77)");
+                    $('#password').css("background-color","rgb(255, 255, 255)");
+                    document.getElementById('password2').value = "";
+                    $('#password2').css("border-color","rgb(253, 13, 77)");
+                    $('#password2').css("background-color","rgb(255, 255, 255)");
+                }else{
+                    $('#register').submit();
+                }
+
+
+            }
+
+        });
+
+    });
+</script>
 
 
 
