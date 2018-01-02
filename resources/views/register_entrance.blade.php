@@ -18,8 +18,8 @@
         <div class="u-auto-format-text">
             <p>請點擊下方按鈕進行註冊</p>
 
-            <button  type="submit" class="form__button button" value="1"  style="margin-bottom: 10px;">註冊房客</button>
-            <button  type="submit" class="form__button button" value="2"  style="margin-bottom: 10px;">註冊房東</button>
+            <button  type="submit" class="form__button button" value="1" onclick="lev_value(this)" style="margin-bottom: 10px;">註冊房客</button>
+            <button  type="submit" class="form__button button" value="2" onclick="lev_value(this)" style="margin-bottom: 10px;">註冊房東</button>
 
             <small class="form-box__addon u-auto-format-text">
                 已經註冊了嗎? <a href='/login_entrance'>登入</a>
@@ -34,3 +34,19 @@
 
 <!-- Footer -->
 @include('common.footer')
+
+<script type="text/javascript">
+    function lev_value($val){
+        switch($val.value) {
+            case '1':
+                // alert ($vel.value)
+                window.location.href = "register/1";
+                break;
+            case '2':
+                // alert (lev_id);
+                window.location.href = "register/2";
+                break;
+            //}
+        }
+    }
+</script>

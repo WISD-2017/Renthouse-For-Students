@@ -8,6 +8,8 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
+
+@if($val_id=='1')
     <div class="form-box l-col-wrap">
         <div class="l-col form-box__content">
             <h1 class="form-box__title">房客註冊須知</h1>
@@ -63,12 +65,74 @@
 
         </div>
     </div>
+@endif
+
+@if($val_id=='2')
+    <div class="form-box l-col-wrap">
+        <div class="l-col form-box__content">
+            <h1 class="form-box__title">房東註冊須知</h1>
+            <div class="u-auto-format-text">
+
+                <ul class="A">
+                    　      <li>租屋刊登成功後，需經審核通過，才開放查詢。</li>
+                    　      <li>請儘量提供照片供學生參考，但注意檔案限制。</li></br>
+                    <li>為保持資料庫之最新狀態，於每學期會作整理一次，若您的資料被刪除，請再上“租屋刊登”上傳一次。</li></br>
+                    <li>任何意見及建議請點選右上方“聯絡我們”或以電話告知。</li></br>
+                    </br>
+                </ul>
+
+            </div>
+        </div>
+        <div class="l-col form-box__form">
+
+            <form id="register" action="/register/create_landlord" method="POST"  class="form form--sign-up">
+
+                {{ csrf_field() }}
+
+                <label for="account" class="form__label">帳號：</label>
+                <span class="warn-account" style="margin-left:5px; color: red;"></span>
+                <input id="account" name="account" type="text" class="form__field" placeholder="請輸入帳號">
 
 
+                <label for="password" class="form__label">密碼：</label>
+                <span class="warn-password" style="margin-left:5px; color: red;"></span>
+                <input id="password" name="password" type="password" class="form__field" placeholder="請輸入密碼">
+
+
+
+                <label for="password2" class="form__label">確認密碼：</label>
+                <span class="warn-password2" style="margin-left:5px; color: red;"></span>
+                <input id="password2" name="password2" type="password" class="form__field" placeholder="請輸入確認密碼">
+
+
+                <label for="name" class="form__label">房東姓名：</label>
+                <span class="warn-name" style="margin-left:5px; color: red;"></span>
+                <input id="name" name="name" type="text" class="form__field" placeholder="請輸入姓名">
+
+
+
+                <label for="email" class="form__label">email:</label>
+                <span class="warn-email" style="margin-left:5px; color: red;"></span>
+                <input id="email" name="email" type="text" class="form__field" placeholder="請輸入email">
+
+                <br>
+                <input id="submit_btn" type="submit" class="form__button button">
+            </form>
+
+            <small class="form-box__addon u-auto-format-text">
+                已經註冊過了? <a href='/login/2'>登入</a>
+            </small>
+            <br>
+            <small class="form-box__addon u-auto-format-text">
+                不是要註冊房東? <a href='/register_entrance'>返回</a>
+            </small>
+
+        </div>
+    </div>
+@endif
 
 <!-- Footer -->
 @include('common.footer')
-
 
 
 
