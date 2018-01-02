@@ -14,12 +14,44 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href='/register_entrance'>註冊會員<br>Register</a></li>
-                    <li><a href='/login_entrance'>登入會員
-                            <br>Login</a></li>
-                </ul>
+                @if (session('login'))
+                    @foreach(session('login') as $login)
+                        @if($login->level ==1)
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ $login->name }}<br>{{ $login->account }} <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+
+                                        <li><a href="/compare_house">房屋收藏比較</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="/logout">登出</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        @elseif($login->level ==2)
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ $login->name }}<br>{{ $login->account }} <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+
+                                        <li><a href="/publish_landlord_info">刊登房屋</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="/logout">登出</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        @endif
+                    @endforeach
+
+                @else
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href='/register_entrance'>註冊會員<br>Register</a></li>
+                        <li><a href='/login_entrance'>登入會員
+                                <br>Login</a></li>
+                    </ul>
+                @endif
+
         </div>
     </div>
 </nav>
