@@ -18,3 +18,5 @@ Route::get('/', function () {
 //首頁
 Route::get('index', ['as' => 'index', 'uses' => 'AuthController@show'])->name('index');
 
+//註冊入口
+Route::get('register_entrance', 'RegisterController@register_entrance_show');
