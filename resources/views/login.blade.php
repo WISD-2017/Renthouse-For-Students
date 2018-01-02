@@ -111,4 +111,12 @@
 <!-- Footer -->
 @include('common.footer')
 
+@if($error!='')
+    <script>
+        layer.alert('{{$error}}', {
+            skin: 'layui-layer-lan' //样式类名
+            ,closeBtn: 0
+        });
 
+    </script>
+@endif

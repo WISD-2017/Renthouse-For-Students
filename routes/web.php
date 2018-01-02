@@ -41,4 +41,14 @@ Route::group(['prefix' => 'login'], function() {
 
     Route::get('{val_id}', 'LoginController@login_show'); //判斷登入的身分
 
+    Route::post('find', 'AuthController@login'); //登入房客
+
+    Route::get('{val_id}/error', 'LoginController@login_one_error'); //登入失敗1次
+
+    Route::get('{val_id}/error/error', 'LoginController@login_two_error'); //登入失敗2次
+
+    Route::get('{val_id}/error/error/error', 'LoginController@login_three_error'); //登入失敗3次
+
+    Route::get('{val_id}/error/error/error/error', 'LoginController@login_over_three_error'); //登入失敗超過3次
+
 });

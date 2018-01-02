@@ -64,4 +64,25 @@ class AuthController extends Controller
 
         return redirect('index');
     }
+
+    public function login(Request  $request)
+    {
+        $account = $request->account;
+        $password = $request->password;
+
+        $login=DB::table('users')->where('account',$account)->where( 'password', $password)->where( 'verify', 1) ->where('level', 1)->get();
+
+        if(count($login)>0 ) {
+            Session::put('login', $login);
+            $login = Session::get('login');
+            Session::reflash();
+
+            return redirect('index')->with('login', $login);
+
+        }else{
+
+            return redirect(url()->previous().'/error');
+        }
+
+    }
 }
