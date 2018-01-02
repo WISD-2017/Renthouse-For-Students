@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//首頁
+Route::get('index', ['as' => 'index', 'uses' => 'AuthController@show'])->name('index');
 
