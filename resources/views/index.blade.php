@@ -14,6 +14,37 @@
 
     @include('common.navigation')
 
+    @if (session('WaitForMail') == '請確認信件')
+
+        <script>
+            layer.alert('為了確保您具備學生身分，請至信箱確認信件！', {
+                skin: 'layui-layer-molv' //样式类名
+                ,closeBtn: 0
+            });
+        </script>
+
+        {{  Session::forget('WaitForMail') }}
+    @endif
+
+    @if (session('getmail') == '以確認信件')
+
+        {{ $data->email }}
+
+    @endif
+
+
+    @if (session('verify_ok') == '審核成功')
+
+        <script>
+            layer.alert('恭喜，身分審核成功，登入即可使用', {
+                skin: 'layui-layer-molv' //样式类名
+                ,closeBtn: 0
+            });
+        </script>
+
+        {{  Session::forget('verify_ok') }}
+
+    @endif
 
     <section class="rslt">
         <nav class="rslt__view">
