@@ -8,6 +8,7 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="/layer/layer.js" type="text/javascript" charset="utf-8" async defer></script>
 
+@include('common.rapidsearch')
 
 <main class="app--core">
 
@@ -58,6 +59,7 @@
                     </li><!--@end feed item-->
         </ul>
 
+        @include('common.footer')
 
         <script src="/js/one.js" type="text/javascript" charset="utf-8" async defer></script>
 
