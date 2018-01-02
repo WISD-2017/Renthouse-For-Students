@@ -14,7 +14,9 @@ class CreateCollectsTable extends Migration
     public function up()
     {
         Schema::create('collects', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('collect_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('house_id')->unsigned();
             $table->timestamps();
         });
     }
