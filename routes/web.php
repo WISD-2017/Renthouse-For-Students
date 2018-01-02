@@ -26,4 +26,9 @@ Route::group(['prefix' => 'register'], function() {
 
     Route::get('{val_id}', 'RegisterController@register_show'); //判斷註冊的身分
 
+    Route::post('create_tenant', 'AuthController@register_create_tenant'); //註冊房客
+
+    Route::post('create_landlord', 'AuthController@register_create_landlord'); //註冊房東
 });
+
+Route::get('/getmail/{user_id}',  'MailController@getmail');//收到使用者確認信件(並開通身分)
