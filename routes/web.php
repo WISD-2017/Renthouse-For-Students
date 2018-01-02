@@ -32,3 +32,6 @@ Route::group(['prefix' => 'register'], function() {
 });
 
 Route::get('/getmail/{user_id}',  'MailController@getmail');//收到使用者確認信件(並開通身分)
+
+//登入入口
+Route::get('login_entrance', 'LoginController@login_entrance_show');
