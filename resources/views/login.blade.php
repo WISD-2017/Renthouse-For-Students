@@ -10,6 +10,11 @@
 <!--<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8" async defer></script>-->
 
 
+
+
+@if($val_id=='1')
+
+
     <div class="form-box l-col-wrap">
 
         <div class="l-col form-box__form">
@@ -38,7 +43,69 @@
 
         </div>
     </div>
+@endif
 
+@if($val_id=='2')
+    <div class="form-box l-col-wrap">
+
+        <div class="l-col form-box__form">
+            <h1 class="form-box__title">Login For Landlord<p><p>請輸入房東的帳號密碼進行登入</p></h1>
+            <br>
+
+            <form name="loggedin" id="loggedin" method="post"  action="/login/find" class="form form--log-in" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <input type="hidden" name="loggedin_2" value="true">
+                <label for="account" class="form__label">房東帳號：</label>
+                <input id="account" name="account" type="text" class="form__field" placeholder="請輸入房東帳號" required="true" autofocus="">
+
+                <label for="password" class="form__label">房東密碼：</label>
+                <input id="password" name="password" type="password" class="form__field" placeholder="請輸入房客密碼" required="true">
+
+                <br>
+                <input name="submit" type="submit" class="form__button button" value="Login">
+            </form>
+
+            <small class="form-box__addon u-auto-format-text">
+                還尚未註冊嗎? <a href='/register/2'>註冊</a>
+            </small>
+            <br>
+            <small class="form-box__addon u-auto-format-text">
+                不是房東? <a href='/login_entrance'>返回</a>
+            </small>
+
+        </div>
+    </div>
+@endif
+
+@if($val_id=='3')
+    <div class="form-box l-col-wrap">
+
+        <div class="l-col form-box__form">
+            <h1 class="form-box__title">Login For administrator<p><p>請輸入管理人員的帳號密碼進行登入</p></h1>
+            <br>
+
+            <form id="sign-up" method="post" class="form form--sign-up" enctype="multipart/form-data">
+                <input type="hidden" name="login" value="true">
+                <label for="email" class="form__label">管理人員帳號：</label>
+                <input name="email" type="email" class="form__field" placeholder="請輸入管理人員帳號" required="true" autofocus="">
+
+                <label for="password" class="form__label">管理人員密碼：</label>
+                <input name="password" type="password" class="form__field" placeholder="請輸入管理人員密碼" required="true" >
+
+
+                <br>
+                <input name="submit" type="submit" class="form__button button" value="Login">
+            </form>
+
+
+            <br>
+            <small class="form-box__addon u-auto-format-text">
+                不是管理人員? <a href='/login_entrance'>返回</a>
+            </small>
+
+        </div>
+    </div>
+@endif
 
 
 <!-- Footer -->

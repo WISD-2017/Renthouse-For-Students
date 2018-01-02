@@ -35,3 +35,10 @@ Route::get('/getmail/{user_id}',  'MailController@getmail');//收到使用者確
 
 //登入入口
 Route::get('login_entrance', 'LoginController@login_entrance_show');
+
+//登入
+Route::group(['prefix' => 'login'], function() {
+
+    Route::get('{val_id}', 'LoginController@login_show'); //判斷登入的身分
+
+});

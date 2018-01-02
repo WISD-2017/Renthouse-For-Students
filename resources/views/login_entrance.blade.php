@@ -17,9 +17,9 @@
         <div class="u-auto-format-text">
             <p>請點擊下方按鈕進行登入</p>
 
-            <button  type="submit" class="form__button button" value="1"  style="margin-bottom: 10px;">房客入口 </button>
-            <button  type="submit" class="form__button button" value="2"  style="margin-bottom: 10px;">房東入口 </button>
-            <button  type="submit" class="form__button button" value="3"  style="margin-bottom: 10px;">管理人員入口 </button>
+            <button  type="submit" class="form__button button" value="1" onclick="lev_vel(this)" style="margin-bottom: 10px;">房客入口 </button>
+            <button  type="submit" class="form__button button" value="2" onclick="lev_vel(this)" style="margin-bottom: 10px;">房東入口 </button>
+            <button  type="submit" class="form__button button" value="3" onclick="lev_vel(this)" style="margin-bottom: 10px;">管理人員入口 </button>
 
 
             <small class="form-box__addon u-auto-format-text">
@@ -34,5 +34,22 @@
 <!-- Footer -->
 @include('common.footer')
 
-
+<script type="text/javascript">
+    function lev_vel($val){
+        switch($val.value) {
+            case '1':
+                // alert ($vel.value)
+                window.location.href = "/login/1";
+                break;
+            case '2':
+                // alert (lev_id);
+                window.location.href = "/login/2";
+                break;
+            case '3':
+                // alert (lev_id);
+                window.location.href = "/login/3";
+                break;
+        }
+    }
+</script>
 
