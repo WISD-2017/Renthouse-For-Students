@@ -62,7 +62,7 @@ class AuthController extends Controller
 
         ]);
 
-        return redirect('index');
+        return redirect('index')->with('landlord_msg','房東註冊成功');
     }
 
     public function login(Request  $request)

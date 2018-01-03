@@ -13,7 +13,6 @@
 <main class="app--core">
 
     @include('common.navigation')
-
     @if (session('WaitForMail') == '請確認信件')
 
         <script>
@@ -46,6 +45,17 @@
 
     @endif
 
+    @if (session('landlord_msg') == '房東註冊成功')
+
+        <script>
+            layer.alert('恭喜註冊成功，登入後即可刊登房屋！', {
+                skin: 'layui-layer-molv' //样式类名
+                ,closeBtn: 0
+            });
+        </script>
+
+        {{  Session::forget('landlord_msg') }}
+    @endif
     <section class="rslt">
         <nav class="rslt__view">
             <div class="rslt__view__acts">
@@ -93,5 +103,4 @@
         @include('common.footer')
 
         <script src="/js/one.js" type="text/javascript" charset="utf-8" async defer></script>
-
 
