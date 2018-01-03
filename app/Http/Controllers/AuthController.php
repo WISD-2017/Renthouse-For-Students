@@ -70,7 +70,7 @@ class AuthController extends Controller
         $account = $request->account;
         $password = $request->password;
 
-        $login=DB::table('users')->where('account',$account)->where( 'password', $password)->where( 'verify', 1) ->where('level', 1)->get();
+        $login=DB::table('users')->where('account',$account)->where( 'password', $password)->where( 'verify', 1)->get();
 
         if(count($login)>0 ) {
             Session::put('login', $login);
