@@ -52,3 +52,6 @@ Route::group(['prefix' => 'login'], function() {
     Route::get('{val_id}/error/error/error/error', 'LoginController@login_over_three_error'); //登入失敗超過3次
 
 });
+
+//登出
+Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);

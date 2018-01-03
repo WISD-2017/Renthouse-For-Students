@@ -85,4 +85,10 @@ class AuthController extends Controller
         }
 
     }
+
+    public function logout()
+    {
+        Session::flush();
+        return Redirect::to('index');
+    }
 }
