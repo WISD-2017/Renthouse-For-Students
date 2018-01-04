@@ -58,4 +58,5 @@ Route::group(['prefix' => 'publish'], function() {
 
     Route::get('/publish_landlord_info',  'PublishHouseController@index')->name('publish_step_one'); //刊登房屋(step1)
 
+    //Route::get('/publish_house_info',  'PublishHouseController@index_2')->name('publish_step_two'); //測試用
 });

@@ -13,7 +13,12 @@ class PublishHouseController extends Controller
      */
     public function index()
     {
-        return view ('/publish_landlord_info');
+        return view ('publish.publish_landlord_info');
+    }
+
+    public function index_2() //測試版型
+    {
+        return view ('publish.publish_house_info');
     }
 
     /**
