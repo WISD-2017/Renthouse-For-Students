@@ -18,7 +18,7 @@ class PublishHouseController extends Controller
 
     public function index_2() //測試版型
     {
-        return view ('publish.publish_house_info');
+        return view ('publish.publish_success');
     }
 
     /**

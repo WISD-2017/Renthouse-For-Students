@@ -242,7 +242,7 @@
 
         <div class="btns">
             <button type="button" class="layui-btn" id="prevBtn" name="prevBtn">上一步</button>
-            <button type="button" class="layui-btn" id="nextBtn" name="nextBtn" onclick="formSubmit()">下一步</button>
+            <button type="button" class="layui-btn" id="nextBtn" name="nextBtn" onclick="formSubmit()">完成送出</button>
 
         </div>
         <script type="text/javascript">
