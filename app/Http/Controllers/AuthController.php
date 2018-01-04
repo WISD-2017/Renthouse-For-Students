@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function show()
     {
-        $houses = DB::table('houses')->get();
+        $houses = DB::table('houses')->orderBy('house_id', 'desc')->get();
         if(count($houses)>0 ) {
             Session::put('houses', $houses);
             $houses = Session::get('houses');
