@@ -9,11 +9,18 @@ use View;
 use Session;
 use DB;
 use Illuminate\Support\Facades\Mail;
+
 class AuthController extends Controller
 {
     public function show()
     {
-        return view ('/index');
+        $houses = DB::table('houses')->get();
+        if(count($houses)>0 ) {
+            Session::put('houses', $houses);
+            $houses = Session::get('houses');
+            Session::reflash();
+        }
+        return view ('/index')->with('houses', $houses);
     }
 
     public function register_create_tenant(Request  $request) //註冊房客

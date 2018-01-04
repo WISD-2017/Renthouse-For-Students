@@ -56,7 +56,7 @@ Route::group(['prefix' => 'login'], function() {
 //登出
 Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 
-//房東 - 刊登房屋 - view
+//房東 - 刊登房屋 - view &&  刊登房屋
 Route::group(['prefix' => 'publish'], function() {
 
     Route::get('/publish_landlord_info',  'PublishHouseController@index_step1')->name('publish_step_one'); //刊登房屋(step1 - 填寫房東資料)

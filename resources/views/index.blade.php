@@ -77,27 +77,31 @@
         </nav>
 
         <ul class="rslt__feed">
+            @if (session('houses'))
+                @foreach(session('houses') as $house)
                     <li class="feed__itm" js-result-item><!--item 1 -->
                         <div class="feed__itm__inr">
                             <div class="feed__itm__img" style="background-image: url('{{  $house->file1 }}')" >
-                                <span class="feed__itm__prc">$ 5000 元/月</span>
+                                <span class="feed__itm__prc">${{ $house->rental }} 元/月</span>
                                 <button class="btn__fl btn--fav" js-item-fav>
                                     <i class="btn__seg ion ion-android-favorite-outline"></i>
                                     <i class="btn__seg ion ion-android-favorite"></i>
                                 </button>
                             </div>
-                            <h5 class="feed__itm__ttl">房屋名稱</h5>
+                            <h5 class="feed__itm__ttl">{{ $house->housename }}</h5>
                             <p class="feed__itm__lbl lbl--1">by owner&nbsp;-&nbsp;
                                 <span>
-                                    {{ '#'.房屋類型.' '}}
-                                    {{ '#'.租金.' '}}
-                                    {{ '#'.租期.' '}}
-                                    {{ '#'.生活機能.' '}}
+                                   {{ '#'.$house->housetype.' '}}
+                                    {{ '#'.$house->rental.' '}}
+                                    {{ '#'.$house->lease_term.' '}}
+                                    {{ '#'.$house->material.' '}}
                                 </span>
                             </p>
                             <button class="layui-btn layui-btn-radius layui-btn-normal" style="float: right;" type="button" >查看房屋</button>
                         </div>
                     </li><!--@end feed item-->
+                @endforeach
+            @endif
         </ul>
 
         @include('common.footer')
