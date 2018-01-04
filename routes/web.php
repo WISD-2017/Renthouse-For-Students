@@ -56,7 +56,10 @@ Route::group(['prefix' => 'login'], function() {
 //房東 - 刊登房屋 - view
 Route::group(['prefix' => 'publish'], function() {
 
-    Route::get('/publish_landlord_info',  'PublishHouseController@index')->name('publish_step_one'); //刊登房屋(step1)
+    Route::get('/publish_landlord_info',  'PublishHouseController@index_step1')->name('publish_step_one'); //刊登房屋(step1 - 填寫房東資料)
 
-    Route::get('/publish_success',  'PublishHouseController@index_2')->name('publish_step_three'); //測試用
+    Route::get('/publish_house_info',  'PublishHouseController@index_step2')->name('publish_step_two'); //刊登房屋(step2 - 填寫房屋詳細資訊)
+
+    Route::post('/create_landlord_info', 'PublishHouseController@store_landlord_info'); //建立房東資料(step1)
+
 });

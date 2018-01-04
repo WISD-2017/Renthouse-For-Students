@@ -13,7 +13,7 @@
 
 
 
-    <form id="landlord_info" action="/publish/create_landlord_info" method="POST"  class="layui-form" >
+    <form id="landlord_info" action="create_landlord_info" method="POST"  class="layui-form" >
 
         {{ csrf_field() }}
         <div class="layui-form-mid layui-word-aux" style="font-size: 16px;margin-bottom: 10px;">第一步驟 - 請先填寫房東資料：</div>

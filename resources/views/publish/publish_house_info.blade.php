@@ -18,6 +18,11 @@
 
         <div class="layui-form-mid layui-word-aux" style="font-size: 16px;margin-bottom: 10px;">第二步驟 - 請填寫所要刊登的房屋資訊：</div>
 
+        @if (session('landlord_info_data'))
+            <input id="contact" name="contact"  type="hidden" class="layui-input" value=" {{ session('landlord_info_data')['contact'] }}" >
+            <input id="relationship" name="relationship"  type="hidden" class="layui-input" value=" {{ session('landlord_info_data')['relationship'] }}" >
+            <input id="phone" name="phone"  type="hidden" class="layui-input" value=" {{ session('landlord_info_data')['phone'] }}" >
+        @endif
 
         <div class="layui-form-item">
             <label class="layui-form-label">房屋名稱</label>
