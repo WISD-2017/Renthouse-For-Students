@@ -12,7 +12,7 @@
 
 @include('common.publish_step')
 
-    <form id="landlord_info" action="/publish/success_publish" method="POST"  class="layui-form" enctype="multipart/form-data">
+    <form id="landlord_info" action="publish_success" method="POST"  class="layui-form" enctype="multipart/form-data">
 
         {{ csrf_field() }}
 
@@ -22,6 +22,13 @@
             <input id="contact" name="contact"  type="hidden" class="layui-input" value=" {{ session('landlord_info_data')['contact'] }}" >
             <input id="relationship" name="relationship"  type="hidden" class="layui-input" value=" {{ session('landlord_info_data')['relationship'] }}" >
             <input id="phone" name="phone"  type="hidden" class="layui-input" value=" {{ session('landlord_info_data')['phone'] }}" >
+        @endif
+
+        @if (session('login'))
+            @foreach(session('login') as $login)
+                <input id="user_id" name="user_id"  type="hidden" class="layui-input" value="  {{ $login->user_id }}" >
+                <input id="email" name="email"  type="hidden" class="layui-input" value="  {{ $login->email }}" >
+            @endforeach
         @endif
 
         <div class="layui-form-item">

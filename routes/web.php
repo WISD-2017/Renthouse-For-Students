@@ -62,4 +62,6 @@ Route::group(['prefix' => 'publish'], function() {
 
     Route::post('/create_landlord_info', 'PublishHouseController@store_landlord_info'); //建立房東資料(step1)
 
+    Route::post('/publish_success', 'PublishHouseController@store'); //建立房屋資料(step2)
+
 });
