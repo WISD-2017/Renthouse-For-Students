@@ -53,6 +53,9 @@ Route::group(['prefix' => 'login'], function() {
 
 });
 
+//登出
+Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+
 //房東 - 刊登房屋 - view
 Route::group(['prefix' => 'publish'], function() {
 
@@ -65,3 +68,5 @@ Route::group(['prefix' => 'publish'], function() {
     Route::post('/publish_success', 'PublishHouseController@store'); //建立房屋資料(step2)
 
 });
+
+
