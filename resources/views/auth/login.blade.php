@@ -21,7 +21,7 @@
             <h1 class="form-box__title">Login For Tenant<p><p>請輸入房客的帳號密碼進行登入</p></h1>
             <br>
 
-            <form name="loggedin" id="loggedin" method="post" action="/login/find" class="form form--log-in">
+            <form name="loggedin" id="loggedin" method="post" action="/auth/login/find" class="form form--log-in">
                 {{ csrf_field() }}
                 <label for="account" class="form__label">房客帳號：</label>
                 <input id="account" name="account" type="text" class="form__field" placeholder="請輸入房客帳號" >
@@ -34,11 +34,11 @@
             </form>
 
             <small class="form-box__addon u-auto-format-text">
-                還尚未註冊嗎? <a href='/register/1'>註冊</a>
+                還尚未註冊嗎? <a href='/auth/register/1'>註冊</a>
             </small>
             <br>
             <small class="form-box__addon u-auto-format-text">
-                不是房客? <a href='/login_entrance'>返回</a>
+                不是房客? <a href='/auth/login/lists'>返回</a>
             </small>
 
         </div>
@@ -52,7 +52,7 @@
             <h1 class="form-box__title">Login For Landlord<p><p>請輸入房東的帳號密碼進行登入</p></h1>
             <br>
 
-            <form name="loggedin" id="loggedin" method="post"  action="/login/find" class="form form--log-in" enctype="multipart/form-data">
+            <form name="loggedin" id="loggedin" method="post"  action="/auth/login/find" class="form form--log-in" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="loggedin_2" value="true">
                 <label for="account" class="form__label">房東帳號：</label>
@@ -66,11 +66,11 @@
             </form>
 
             <small class="form-box__addon u-auto-format-text">
-                還尚未註冊嗎? <a href='/register/2'>註冊</a>
+                還尚未註冊嗎? <a href='/auth/register/2'>註冊</a>
             </small>
             <br>
             <small class="form-box__addon u-auto-format-text">
-                不是房東? <a href='/login_entrance'>返回</a>
+                不是房東? <a href='/auth/login/lists'>返回</a>
             </small>
 
         </div>
@@ -84,7 +84,7 @@
             <h1 class="form-box__title">Login For administrator<p><p>請輸入管理人員的帳號密碼進行登入</p></h1>
             <br>
 
-            <form id="sign-up" method="post" class="form form--sign-up" enctype="multipart/form-data">
+            <form id="sign-up" method="post"  action="/auth/login/find" class="form form--log-in" enctype="multipart/form-data">
                 <input type="hidden" name="login" value="true">
                 <label for="email" class="form__label">管理人員帳號：</label>
                 <input name="email" type="email" class="form__field" placeholder="請輸入管理人員帳號" required="true" autofocus="">
@@ -100,7 +100,7 @@
 
             <br>
             <small class="form-box__addon u-auto-format-text">
-                不是管理人員? <a href='/login_entrance'>返回</a>
+                不是管理人員? <a href='/auth/login/lists'>返回</a>
             </small>
 
         </div>

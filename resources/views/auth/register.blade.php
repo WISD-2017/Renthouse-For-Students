@@ -56,11 +56,11 @@
 
 
             <small class="form-box__addon u-auto-format-text">
-                已經註冊過了? <a href='/login/1'>登入</a>
+                已經註冊過了? <a href='/auth/login/1'>登入</a>
             </small>
             <br>
             <small class="form-box__addon u-auto-format-text">
-                不是要註冊房客? <a href='/register_entrance'>返回</a>
+                不是要註冊房客? <a href='/auth/register/lists'>返回</a>
             </small>
 
         </div>
@@ -120,11 +120,11 @@
             </form>
 
             <small class="form-box__addon u-auto-format-text">
-                已經註冊過了? <a href='/login/2'>登入</a>
+                已經註冊過了? <a href='/auth/login/2'>登入</a>
             </small>
             <br>
             <small class="form-box__addon u-auto-format-text">
-                不是要註冊房東? <a href='/register_entrance'>返回</a>
+                不是要註冊房東? <a href='/auth/register/lists'>返回</a>
             </small>
 
         </div>

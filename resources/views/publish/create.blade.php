@@ -12,7 +12,7 @@
 
 @include('common.publish_step')
 
-    <form id="landlord_info" action="publish_success" method="POST"  class="layui-form" enctype="multipart/form-data">
+    <form id="landlord_info" action="add" method="POST"  class="layui-form" enctype="multipart/form-data">
 
         {{ csrf_field() }}
 
