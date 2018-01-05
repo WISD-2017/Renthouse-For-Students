@@ -1,71 +1,68 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use DB;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
+    public static function index(){ //註冊入口(身分選擇)
+        return view('auth.register_entrance');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+    public static function show($val_id){ //顯示註冊頁面(依身分顯示不同註冊須知)
+        return view('auth.register' ,compact('val_id'));
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
+    public function store_tenant(Request  $request) //註冊房客
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        $account = $request->account;
+
+        User::create([
+            'account'=>$account,
+            'password'=>$request->password,
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'verify'=>'0',
+            'level'=>'1',
+            'withdrawal'=>'0'
+
         ]);
+
+        $user = DB::table('users')
+            ->where('account', '=', $account)->get();
+
+        foreach( $user as $data) {
+            $user_id = $data->user_id;
+        }
+
+        Mail::raw('請至本網址，即可完成學生身分認證-> http://localhost:8000/getmail/'.$user_id, function ($message) use ($user){
+            foreach( $user as $data){
+                $message->to($data->email, $data->name)->subject('註冊租屋網會員通知');
+            }
+        });
+
+        return redirect('index')->with('WaitForMail','請確認信件')->with('user_data',$user);
+    }
+
+    public function store_landlord(Request  $request) //註冊房東
+    {
+        $account = $request->account;
+
+        User::create([
+            'account'=>$account,
+            'password'=>$request->password,
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'verify'=>'1',
+            'level'=>'2',
+            'withdrawal'=>'0'
+
+        ]);
+
+        return redirect('index')->with('landlord_msg','房東註冊成功');
     }
 }

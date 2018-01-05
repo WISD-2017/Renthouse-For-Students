@@ -13,6 +13,18 @@
 <main class="app--core">
 
     @include('common.navigation')
+
+
+    @if($over_three_error!='')
+        <script>
+            layer.alert('{{$over_three_error}}', {
+                skin: 'layui-layer-lan' //样式类名
+                ,closeBtn: 0
+            });
+
+        </script>
+    @endif
+
     @if (session('WaitForMail') == '請確認信件')
 
         <script>
@@ -97,7 +109,7 @@
                                     {{ '#'.$house->material.' '}}
                                 </span>
                             </p>
-                            <button class="layui-btn layui-btn-radius layui-btn-normal" style="float: right;" type="button" >查看房屋</button>
+                            <button class="layui-btn layui-btn-radius layui-btn-normal" style="float: right;" type="button" onclick="javascript:location.href='houseinfo/{{ $house->house_id }}'">查看房屋</button>
                         </div>
                     </li><!--@end feed item-->
                 @endforeach

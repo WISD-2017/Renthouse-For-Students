@@ -13,14 +13,9 @@ class PublishHouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index_step1() //刊登房屋(step1 - 填寫房東資料) -View
+    public function index() //刊登房屋(step1 - 填寫房東資料) -View
     {
-        return view ('publish.publish_landlord_info');
-    }
-
-    public function index_step2() //刊登房屋(step2 - 填寫房屋詳細資訊) -View
-    {
-        return view ('publish.publish_house_info');
+        return view ('publish.lists');
     }
 
     /**
@@ -28,9 +23,9 @@ class PublishHouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //刊登房屋(step2 - 填寫房屋詳細資訊) -View
     {
-        //
+        return view ('publish.create');
     }
 
     /**
@@ -152,7 +147,13 @@ class PublishHouseController extends Controller
         return view ('publish.publish_success');
     }
 
-    public function store_landlord_info(Request $request) //建立房東資料(step1)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request) //建立房東資料(step1)
     {
         Session::reflash();
         $request->session()->put('contact', $request->contact);
@@ -161,18 +162,7 @@ class PublishHouseController extends Controller
 
         $landlord_info_data = $request->session()->all();
 
-        return redirect('publish/publish_house_info')->with('landlord_info_data', $landlord_info_data);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect('publish/create')->with('landlord_info_data', $landlord_info_data);
     }
 
     /**

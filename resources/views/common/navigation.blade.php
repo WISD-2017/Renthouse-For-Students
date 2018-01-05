@@ -35,7 +35,7 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ $login->name }}<br>{{ $login->account }} <span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
 
-                                        <li><a href="/publish/publish_landlord_info">刊登房屋</a></li>
+                                        <li><a href="/publish/lists">刊登房屋</a></li>
                                         <li class="divider"></li>
                                         <li><a href="/logout">登出</a></li>
                                     </ul>
@@ -46,8 +46,8 @@
 
                 @else
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href='/register_entrance'>註冊會員<br>Register</a></li>
-                        <li><a href='/login_entrance'>登入會員
+                        <li><a href='/auth/register/lists'>註冊會員<br>Register</a></li>
+                        <li><a href='/auth/login/lists'>登入會員
                                 <br>Login</a></li>
                     </ul>
                 @endif
