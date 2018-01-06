@@ -5,7 +5,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
