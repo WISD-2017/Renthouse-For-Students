@@ -71,4 +71,11 @@ Route::group(['prefix' => 'publish'], function() {
 
 });
 
+//顯示房屋資訊
+Route::group(['prefix' => 'house'], function() {
+
+    Route::get('/{house_id}', 'HouseController@show'); //判斷使用者點擊的hosue_id後，去顯示房屋詳細資訊
+
+});
+
 

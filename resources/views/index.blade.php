@@ -109,7 +109,7 @@
                                     {{ '#'.$house->material.' '}}
                                 </span>
                             </p>
-                            <button class="layui-btn layui-btn-radius layui-btn-normal" style="float: right;" type="button" onclick="javascript:location.href='houseinfo/{{ $house->house_id }}'">查看房屋</button>
+                            <button class="layui-btn layui-btn-radius layui-btn-normal" style="float: right;" type="button" onclick="javascript:location.href='/house/{{ $house->house_id }}'">查看房屋</button>
                         </div>
                     </li><!--@end feed item-->
                 @endforeach
