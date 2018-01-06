@@ -73,7 +73,18 @@
                                     <li class="choose">
                                         <a href="#">租金：『 {{ $house_info->rental }}元/月』 </a>
                                         <input type="hidden" name = "house_id" value="{{ $house_info->house_id }}"></input>
-                                        <button name="collect" type="submit" value="collect" >  <span class="icon-text__pink">收藏</span></button>
+
+                                        @if (count(session('login'))==0)
+                                                <button name="collect" type="submit" value="collect" >  <span class="icon-text__pink">收藏</span></button>
+                                        @endif
+
+                                        @if (session('login'))
+                                            @if(count(session('login'))>0)
+                                                @foreach(session('login') as $login)
+                                                    <button name="collect" type="submit" value="collect" >  <span class="icon-text__pink">收藏</span></button>
+                                                @endforeach
+                                            @endif
+                                        @endif
                                     </li>
                                 </form>
 
