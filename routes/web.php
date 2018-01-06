@@ -80,12 +80,18 @@ Route::group(['prefix' => 'house'], function() {
 
 });
 
-//收藏房屋
+//收藏、比較房屋
 Route::group(['prefix' => 'collect'], function() {
 
     Route::post('/add', 'CollectController@store'); //會員收藏房屋
 
+    Route::group(['prefix' => 'compare'], function() {
+
+        Route::get('/lists', 'CollectController@index'); //顯示房屋比較表
+
+    });
 });
+
 
 
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Collect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+
 class CollectController extends Controller
 {
     /**
@@ -14,7 +16,29 @@ class CollectController extends Controller
      */
     public function index()
     {
-        //
+        if (session('login')){
+            foreach(session('login') as $login){
+                $account = $login->account;
+            }
+        }
+
+        $compare = DB::table('collects')
+            ->join('users', 'users.user_id', '=', 'collects.user_id')
+            ->join('houses', 'houses.house_id', '=', 'collects.house_id')
+            ->select('collects.*', 'users.account', 'houses.housename', 'houses.housename', 'houses.housetype', 'houses.ping', 'houses.house_age', 'houses.deposit', 'houses.pet', 'houses.opened', 'houses.elevator', 'houses.parking_spaces', 'houses.balcony')
+            ->where('users.account', '=', $account)
+            ->limit(5)
+            ->get();
+
+
+        if(count($compare)>0 ) {
+            Session::put('compare', $compare);
+            $compare = Session::get('compare');
+            Session::reflash();
+
+            return view('compare.lists')->with('compare', $compare);
+            // redirect()->action('CollectController@lists')->with('compare', $compare);
+        }
     }
 
     /**
