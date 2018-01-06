@@ -81,7 +81,17 @@
                                         @if (session('login'))
                                             @if(count(session('login'))>0)
                                                 @foreach(session('login') as $login)
-                                                    <button name="collect" type="submit" value="collect" >  <span class="icon-text__pink">收藏</span></button>
+                                                    @if (count(session('check_collect'))>0)
+                                                        @foreach(session('check_collect') as $check_house)
+                                                            @if($check_house->user_id == $login->user_id)
+                                                                <span class="icon-text__pink">已收藏</span>
+                                                            @else
+                                                                <button name="collect" type="submit" value="collect">  <span class="icon-text__pink">收藏</span></button>
+                                                            @endif
+                                                        @endforeach
+                                                    @else
+                                                        <button name="collect" type="submit" value="collect" >  <span class="icon-text__pink">收藏</span></button>
+                                                    @endif
                                                 @endforeach
                                             @endif
                                         @endif

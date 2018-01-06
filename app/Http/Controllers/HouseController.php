@@ -31,9 +31,15 @@ class HouseController extends Controller
         Session::put('login', $login);
         $login = Session::get('login');
 
+        $check_collect = DB::table('collects')
+            ->where('house_id',$house_id)->get();
+        Session::put('check_collect', $check_collect);
+        $check_collect = Session::get('check_collect');
+
+
         Session::reflash();
 
-        return view('house.lists')->with('house_info', $house_info)->with('login', $login);
+        return view('house.lists')->with('house_info', $house_info)->with('login', $login)->with('check_collect', $check_collect);
 
     }
 }
