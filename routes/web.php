@@ -80,4 +80,12 @@ Route::group(['prefix' => 'house'], function() {
 
 });
 
+//收藏房屋
+Route::group(['prefix' => 'collect'], function() {
+
+    Route::post('/add', 'CollectController@store'); //會員收藏房屋
+
+});
+
+
 
