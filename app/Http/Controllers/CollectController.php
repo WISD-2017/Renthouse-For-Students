@@ -119,8 +119,14 @@ class CollectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($collect_id)
     {
-        //
+        if (session('login')){
+            foreach(session('login') as $login){
+                $account = $login->account;
+            }
+        }
+        Collect::where('collect_id', '=', $collect_id)->delete();
+        return redirect()->route('collect.compare.index')->with('account',$account);
     }
 }

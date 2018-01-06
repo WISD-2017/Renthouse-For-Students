@@ -127,9 +127,9 @@
                 @foreach(session('compare') as $compare)
 
                     <td>
-                        <form name="delete_collect" id="delete_collect" action="/compare_house/{{ $compare->collect_id }}" method="get">
+                        <form name="delete_collect" id="delete_collect" action="/collect/compare/delete/{{ $compare->collect_id }}" method="post">
                             {{ csrf_field() }}
-
+                            {{ method_field('DELETE') }}
 
                             <button id="delete_collect" name="delete_collect" type="submit" value="delete_collect" class="price-buy"> 刪除收藏</button>
                         </form>

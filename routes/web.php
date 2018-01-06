@@ -87,7 +87,9 @@ Route::group(['prefix' => 'collect'], function() {
 
     Route::group(['prefix' => 'compare'], function() {
 
-        Route::get('/lists', 'CollectController@index'); //顯示房屋比較表
+        Route::get('/lists', 'CollectController@index')->name('collect.compare.index'); //顯示房屋比較表
+
+        Route::delete('/delete/{collect_id}', 'CollectController@destroy'); //刪除房屋收藏
 
     });
 });
