@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class HouseController extends Controller
 {
-    public function show($house_id)
+    public function index($house_id)
     {
         $house_info = DB::table('houses')
             ->where('house_id', '=', $house_id)->get();
@@ -17,5 +17,29 @@ class HouseController extends Controller
         Session::reflash();
         return view('house.lists')->with('house_info', $house_info);
         //return redirect('house/lists')->with('house_info', $house_info);
+    }
+
+    public function show($house_id,$user_id)
+    {
+
+        $house_info = DB::table('houses')
+            ->where('house_id', '=', $house_id)->get();
+        Session::put('house_info', $house_info);
+        $house_info = Session::get('house_info');
+
+        $login=DB::table('users')->where('user_id', $user_id)->get();
+        Session::put('login', $login);
+        $login = Session::get('login');
+
+        $check_collect = DB::table('collects')
+            ->where('house_id',$house_id)->get();
+        Session::put('check_collect', $check_collect);
+        $check_collect = Session::get('check_collect');
+
+
+        Session::reflash();
+
+        return view('house.lists')->with('house_info', $house_info)->with('login', $login)->with('check_collect', $check_collect);
+
     }
 }

@@ -25,7 +25,7 @@
         </div>
         <div class="l-col form-box__form">
 
-            <form id="register" action="/register/create_tenant" method="POST"  class="form form--sign-up">
+            <form id="register" action="/auth/register/create_tenant" method="POST"  class="form form--sign-up">
 
                 {{ csrf_field() }}
 
@@ -85,7 +85,7 @@
         </div>
         <div class="l-col form-box__form">
 
-            <form id="register" action="/register/create_landlord" method="POST"  class="form form--sign-up">
+            <form id="register" action="/auth/register/create_landlord" method="POST"  class="form form--sign-up">
 
                 {{ csrf_field() }}
 

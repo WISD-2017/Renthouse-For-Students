@@ -8,7 +8,8 @@
 <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/info.css">
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/layer/layer.js" type="text/javascript" charset="utf-8" async defer></script>
 <style type="text/css">
     form{
         margin: 0;
@@ -68,12 +69,33 @@
                             <ul>
                                 <li class="title">{{ $house_info->housename }}</li>
 
-                                <form name="collect" id="collect" action="/collect_house" method="post" class="form form--sign-up">
+                                <form name="collect" id="collect" action="/collect/add" method="post" class="form form--sign-up">
                                     {{ csrf_field() }}
                                     <li class="choose">
                                         <a href="#">租金：『 {{ $house_info->rental }}元/月』 </a>
                                         <input type="hidden" name = "house_id" value="{{ $house_info->house_id }}"></input>
-                                        <button name="collect" type="submit" value="collect" >  <span class="icon-text__pink">收藏</span></button>
+
+                                        @if (count(session('login'))==0)
+                                                <button id="warn" type="button" value="warn" onclick="layer.tips('登入會員，即可收藏~', '#warn',{ tips: [2, '#3595CC'],time: 2000}); ">  <span class="icon-text__pink">收藏</span></button>
+                                        @endif
+
+                                        @if (session('login'))
+                                            @if(count(session('login'))>0)
+                                                @foreach(session('login') as $login)
+                                                    @if (count(session('check_collect'))>0)
+                                                        @foreach(session('check_collect') as $check_house)
+                                                            @if($check_house->user_id == $login->user_id)
+                                                                <span class="icon-text__pink">已收藏</span>
+                                                            @else
+                                                                <button name="collect" type="submit" value="collect">  <span class="icon-text__pink">收藏</span></button>
+                                                            @endif
+                                                        @endforeach
+                                                    @else
+                                                        <button name="collect" type="submit" value="collect" >  <span class="icon-text__pink">收藏</span></button>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        @endif
                                     </li>
                                 </form>
 
@@ -128,5 +150,4 @@
 <!-- Footer -->
 @include('common.footer')
 <script src="/js/tab.js" type="text/javascript" charset="utf-8" async></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="/js/script.js"></script>

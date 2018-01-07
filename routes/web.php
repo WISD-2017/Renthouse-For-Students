@@ -65,17 +65,35 @@ Route::group(['prefix' => 'publish'], function() {
 
     Route::get('/create',  'PublishHouseController@create')->name('publish_step_two'); //刊登房屋(step2 - 填寫房屋詳細資訊)
 
-    Route::post('/add', 'PublishHouseController@show'); //建立房東資料(step1)
+    Route::post('/add', 'PublishHouseController@store'); //建立房東資料(step1)
 
-    Route::post('/create', 'PublishHouseController@store'); //建立房屋資料(step2)
+    Route::post('/create', 'PublishHouseController@show'); //建立房屋資料(step2)
 
 });
 
 //顯示房屋資訊
 Route::group(['prefix' => 'house'], function() {
 
-    Route::get('/{house_id}', 'HouseController@show'); //判斷使用者點擊的hosue_id後，去顯示房屋詳細資訊
+    Route::get('/{house_id}', 'HouseController@index'); //判斷使用者點擊的hosue_id後，去顯示房屋詳細資訊
+
+    Route::get('/{house_id}/{user_id}','HouseController@show');//會員登入判斷id去收藏房屋
 
 });
+
+//收藏、比較房屋
+Route::group(['prefix' => 'collect'], function() {
+
+    Route::post('/add', 'CollectController@store'); //會員收藏房屋
+
+    Route::group(['prefix' => 'compare'], function() {
+
+        Route::get('/lists', 'CollectController@index')->name('collect.compare.index'); //顯示房屋比較表
+
+        Route::delete('/delete/{collect_id}', 'CollectController@destroy'); //刪除房屋收藏
+
+    });
+});
+
+
 
 
