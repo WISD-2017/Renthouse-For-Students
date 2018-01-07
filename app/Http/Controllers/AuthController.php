@@ -12,13 +12,8 @@ class AuthController extends Controller
 {
     public function show()
     {
-        $houses = DB::table('houses')->orderBy('house_id', 'desc')->get();
-        if(count($houses)>0 ) {
-            Session::put('houses', $houses);
-            $houses = Session::get('houses');
-            Session::reflash();
-        }
-        return view ('/index')->with('houses', $houses);
+        $houses = DB::table('houses')->orderBy('house_id', 'desc')->Paginate(3);
+        return view ('index',['houses' => $houses]);
     }
 
     public function logout()

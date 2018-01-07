@@ -89,8 +89,8 @@
         </nav>
 
         <ul class="rslt__feed">
-            @if (session('houses'))
-                @foreach(session('houses') as $house)
+            @if($houses)
+                @foreach($houses as $house)
                     <li class="feed__itm" js-result-item><!--item 1 -->
                         <div class="feed__itm__inr">
                             <div class="feed__itm__img" style="background-image: url('{{  $house->file1 }}')" >
@@ -115,6 +115,10 @@
                 @endforeach
             @endif
         </ul>
+
+        <div class="feed__pgr" style="margin: 0 auto;  text-align:center;">
+            {!! $houses->render() !!}
+        </div>
 
         @include('common.footer')
 
