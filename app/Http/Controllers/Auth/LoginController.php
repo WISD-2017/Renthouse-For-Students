@@ -22,14 +22,14 @@ class LoginController extends Controller
         $account = $request->account;
         $password = $request->password;
 
-        $login=DB::table('users')->where('account',$account)->where( 'password', $password)->where( 'verify', 1)->get();
+        $login=DB::table('users')->where('account',$account)->where( 'password', md5($password))->where( 'verify', 1)->get();
 
         if(count($login)>0 ) {
             Session::put('login', $login);
             $login = Session::get('login');
             Session::reflash();
 
-            return redirect('index')->with('login', $login);
+            return redirect('index/1')->with('login', $login);
 
         }else{
 

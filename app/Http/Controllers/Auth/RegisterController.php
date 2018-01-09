@@ -20,10 +20,10 @@ class RegisterController extends Controller
     public function store_tenant(Request  $request) //註冊房客
     {
         $account = $request->account;
-
+        $password = $request->password;
         User::create([
             'account'=>$account,
-            'password'=>$request->password,
+            'password'=>md5($password),
             'name'=>$request->name,
             'email'=>$request->email,
             'verify'=>'0',
@@ -45,16 +45,16 @@ class RegisterController extends Controller
             }
         });
 
-        return redirect('index')->with('WaitForMail','請確認信件')->with('user_data',$user);
+        return redirect('index/1')->with('WaitForMail','請確認信件')->with('user_data',$user);
     }
 
     public function store_landlord(Request  $request) //註冊房東
     {
         $account = $request->account;
-
+        $password = $request->password;
         User::create([
             'account'=>$account,
-            'password'=>$request->password,
+            'password'=>md5($password),
             'name'=>$request->name,
             'email'=>$request->email,
             'verify'=>'1',
@@ -63,6 +63,6 @@ class RegisterController extends Controller
 
         ]);
 
-        return redirect('index')->with('landlord_msg','房東註冊成功');
+        return redirect('index/1')->with('landlord_msg','房東註冊成功');
     }
 }

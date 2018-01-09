@@ -85,9 +85,10 @@
             <br>
 
             <form id="sign-up" method="post"  action="/auth/login/find" class="form form--log-in" enctype="multipart/form-data">
+                {{ csrf_field() }}
                 <input type="hidden" name="login" value="true">
-                <label for="email" class="form__label">管理人員帳號：</label>
-                <input name="email" type="email" class="form__field" placeholder="請輸入管理人員帳號" required="true" autofocus="">
+                <label for="account" class="form__label">管理人員帳號：</label>
+                <input name="account" type="account" class="form__field" placeholder="請輸入管理人員帳號" required="true" autofocus="">
 
                 <label for="password" class="form__label">管理人員密碼：</label>
                 <input name="password" type="password" class="form__field" placeholder="請輸入管理人員密碼" required="true" >
