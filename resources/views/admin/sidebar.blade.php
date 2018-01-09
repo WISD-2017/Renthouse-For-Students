@@ -1,7 +1,7 @@
 <!-- menu profile quick info -->
 <div class="profile clearfix">
     <div class="profile_pic">
-        <img src="../images/user.png" alt="..." class="img-circle profile_img">
+        <img src="/images/user.png" alt="..." class="img-circle profile_img">
     </div>
     <div class="profile_info">
         <span>Welcome,</span>
@@ -17,9 +17,9 @@
     <div class="menu_section">
         <h3>General</h3>
         <ul class="nav side-menu">
-            <li><a href="index.php"><i class="fa fa-home"></i> Home </a></li>
+            <li><a href="/admin/index"><i class="fa fa-home"></i> Home </a></li>
 
-            <li><a href="verify_tenant.php"><i class="fa fa-spinner"></i> verify_tenant &nbsp;&nbsp;
+            <li><a href="/admin/lists/1"><i class="fa fa-spinner"></i> verify_tenant &nbsp;&nbsp;
 
 
                     </span>
@@ -29,7 +29,7 @@
 
 
 
-            <li><a href="verify_landlord.php"><i class="fa fa-spinner"></i> verify_landlord &nbsp;&nbsp;
+            <li><a href="/admin/lists/2"><i class="fa fa-spinner"></i> verify_landlord &nbsp;&nbsp;
 
 
                     </span>
@@ -75,7 +75,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="../images/user.png" alt="">Admin
+                        <img src="/images/user.png" alt="">Admin
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -99,7 +99,7 @@
                     <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                         <li>
                             <a>
-                                <span class="image"><img src="../images/user.png" alt="Profile Image" /></span>
+                                <span class="image"><img src="/images/user.png" alt="Profile Image" /></span>
                                 <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -111,7 +111,7 @@
                         </li>
                         <li>
                             <a>
-                                <span class="image"><img src="../images/user.png" alt="Profile Image" /></span>
+                                <span class="image"><img src="/images/user.png" alt="Profile Image" /></span>
                                 <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -123,7 +123,7 @@
                         </li>
                         <li>
                             <a>
-                                <span class="image"><img src="../images/user.png" alt="Profile Image" /></span>
+                                <span class="image"><img src="/images/user.png" alt="Profile Image" /></span>
                                 <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -135,7 +135,7 @@
                         </li>
                         <li>
                             <a>
-                                <span class="image"><img src="../images/user.png" alt="Profile Image" /></span>
+                                <span class="image"><img src="/images/user.png" alt="Profile Image" /></span>
                                 <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
