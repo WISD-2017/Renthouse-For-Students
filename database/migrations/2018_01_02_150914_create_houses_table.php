@@ -48,6 +48,7 @@ class CreateHousesTable extends Migration
             $table->string('file4');
             $table->string('file5');
             $table->string('file6');
+            $table->string('verify');
             $table->timestamps();
         });
     }

@@ -142,7 +142,8 @@ class PublishHouseController extends Controller
             'file3'=>$filePath[2],
             'file4'=>$filePath[3],
             'file5'=>$filePath[4],
-            'file6'=>$filePath[5]
+            'file6'=>$filePath[5],
+            'verify'=>'0',
 
         ]);
         return view ('publish.publish_success');

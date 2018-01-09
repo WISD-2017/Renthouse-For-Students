@@ -28,7 +28,7 @@ class RegisterController extends Controller
             'email'=>$request->email,
             'verify'=>'0',
             'level'=>'1',
-            'withdrawal'=>'0'
+            'status'=>'0'
 
         ]);
 
@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'email'=>$request->email,
             'verify'=>'1',
             'level'=>'2',
-            'withdrawal'=>'0'
+            'status'=>'1'
 
         ]);
 
