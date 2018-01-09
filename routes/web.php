@@ -105,7 +105,12 @@ Route::group(['prefix' => 'collect'], function() {
     });
 });
 
+//後台部分
+Route::group(['prefix' => 'admin'], function() {
 
+    Route::post('/find', 'AdminController@login'); //管理人員登入
+
+});
 
 
 
