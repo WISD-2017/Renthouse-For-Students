@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -50,6 +51,16 @@ class HouseController extends Controller
         Session::reflash();
 
         return view('house.lists')->with('house_info', $house_info)->with('login', $login)->with('check_collect', $check_collect);
+
+    }
+
+    public function update($user_id,$house_id)
+    {
+
+         User::where('user_id', '=', $user_id)->update(['status' => 4 ]);
+         House::where('house_id', '=', $house_id)->update(['verify' => 1]);
+            $message = "審核房屋成功";
+        return redirect('admin/lists/2')->with('message',$message);
 
     }
 }

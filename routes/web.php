@@ -12,10 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('admin.index');
+    return view('welcome');
 });
 
-Route::get('/tests', 'SearchController@all_users');//註冊入口
 //首頁
 //Route::get('index', ['as' => 'index', 'uses' => 'AuthController@show'])->name('index');
 
@@ -38,7 +37,7 @@ Route::group(['prefix' => 'auth'], function() {
 
         Route::get('{val_id}', 'Auth\RegisterController@show'); //判斷註冊的身分
 
-        Route::post('create_tenant', 'Auth\RegisterController@store_tenant'); //註冊房客
+        Route::post('create_tenant', 'Auth\RegisterController@store_tenant'); //註冊房客(含寄信)
 
         Route::post('create_landlord', 'Auth\RegisterController@store_landlord'); //註冊房東
     });
@@ -108,11 +107,20 @@ Route::group(['prefix' => 'collect'], function() {
 //後台部分
 Route::group(['prefix' => 'admin'], function() {
 
-    Route::get('/', 'AdminController@index')->name('admin.index'); //後台
+    Route::get('/', 'AdminController@index'); //後台
+
+    Route::get('/index', 'SearchController@all_users'); //查詢計算人數資料
+
+    Route::get('/lists/{level}', 'AdminController@show'); //審核房東、房客
+
+    Route::get('/verify/{user_id}', 'AdminController@update'); //房客刊登的房屋資訊管理
+
+    Route::get('/pass/{user_id}/{house_id}', 'HouseController@update'); //房客刊登的房屋資訊管理
 
     Route::post('/find', 'AdminController@login'); //管理人員登入
 
 });
+
 
 
 
