@@ -45,7 +45,7 @@ class RegisterController extends Controller
             }
         });
 
-        return redirect('index/1')->with('WaitForMail','請確認信件')->with('user_data',$user);
+        return redirect('index')->with('WaitForMail','請確認信件')->with('user_data',$user);
     }
 
     public function store_landlord(Request  $request) //註冊房東
@@ -63,6 +63,6 @@ class RegisterController extends Controller
 
         ]);
 
-        return redirect('index/1')->with('landlord_msg','房東註冊成功');
+        return redirect('index')->with('landlord_msg','房東註冊成功');
     }
 }
