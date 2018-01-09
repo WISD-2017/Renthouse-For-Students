@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('admin.index');
 });
 
-
+Route::get('/tests', 'SearchController@all_users');//註冊入口
 //首頁
 //Route::get('index', ['as' => 'index', 'uses' => 'AuthController@show'])->name('index');
 
@@ -107,6 +107,8 @@ Route::group(['prefix' => 'collect'], function() {
 
 //後台部分
 Route::group(['prefix' => 'admin'], function() {
+
+    Route::get('/', 'AdminController@index')->name('admin.index'); //後台
 
     Route::post('/find', 'AdminController@login'); //管理人員登入
 
