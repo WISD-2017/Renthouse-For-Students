@@ -12,11 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.index');
 });
 
+
 //首頁
-Route::get('index', ['as' => 'index', 'uses' => 'AuthController@show'])->name('index');
+//Route::get('index', ['as' => 'index', 'uses' => 'AuthController@show'])->name('index');
+
+//首頁
+Route::group(['prefix' => 'index'], function() {
+
+    Route::get('/{num}',  'AuthController@show')->name('index'); //首頁
+
+
+
+});
+
 
 Route::group(['prefix' => 'auth'], function() {
 
@@ -93,6 +104,8 @@ Route::group(['prefix' => 'collect'], function() {
 
     });
 });
+
+
 
 
 

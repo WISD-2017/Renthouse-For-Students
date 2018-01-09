@@ -67,7 +67,7 @@
                         <div class="news body-border">
 
                             <ul>
-                                <li class="title">{{ $house_info->housename }}</li>
+                                <li class="title">{{ $house_info->housename }}　<span style="float: right;">瀏覽次數：{{ $house_info->click }}</span></li>
 
                                 <form name="collect" id="collect" action="/collect/add" method="post" class="form form--sign-up">
                                     {{ csrf_field() }}

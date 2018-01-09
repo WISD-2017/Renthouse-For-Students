@@ -69,13 +69,21 @@
         {{  Session::forget('landlord_msg') }}
     @endif
     <section class="rslt">
-        <nav class="rslt__view">
+        <div >
+
+            <button type="submit" class="layui-btn layui-btn-sm " value="lists" onclick="btn(this)">所有房屋</button>
+            <button type="submit" class="layui-btn layui-btn-sm  layui-btn-danger" value="hot_views"  onclick="btn(this)">＃熱門瀏覽</button>
+            <button type="submit" class="layui-btn layui-btn-sm  layui-btn-warm" value="hot_collcect"  onclick="btn(this)">＃熱門收藏</button>
+
+
+        </div>
+
+
+        <nav class="rslt__view" >
+
+
             <div class="rslt__view__acts">
                 <form>
-                    <button class="btn__fl state--active" js-view-grid><i class="btn__seg ion ion-grid"></i></button>
-                    <button class="btn__fl" js-view-rows><i class="btn__seg ion ion-navicon"></i></button>
-                    <button class="btn__fl" js-view-map><i class="btn__seg ion ion-ios-location"></i></button>
-
                     <label class="ui-dd">
                         <select name="result-sort" id="">
                             <option value="relevant">價格↑</option>
@@ -100,8 +108,8 @@
                                     <i class="btn__seg ion ion-android-favorite"></i>
                                 </button>
                             </div>
-                            <h5 class="feed__itm__ttl">{{ $house->housename }}</h5>
-                            <p class="feed__itm__lbl lbl--1">by owner&nbsp;-&nbsp;
+                            <h5 class="feed__itm__ttl">{{ $house->housename }}<span style="float: right; color: firebrick;font-size: small;">{{ '瀏覽人數：'.$house->click.' '}}</span></h5>
+                            <p class="feed__itm__lbl lbl--1">by {{ $house->contact.' '}}&nbsp;-&nbsp;
                                 <span>
                                    {{ '#'.$house->housetype.' '}}
                                     {{ '#'.$house->rental.' '}}
@@ -135,3 +143,18 @@
 
         <script src="/js/one.js" type="text/javascript" charset="utf-8" async defer></script>
 
+        <script type="text/javascript">
+            function btn($val){
+                switch($val.value) {
+                    case 'lists':
+                        window.location.href = "/index/1";
+                        break;
+                    case 'hot_views':
+                        window.location.href = "/index/2";
+                        break;
+                    case 'hot_collcect':
+                        window.location.href = "/index/3";
+                        break;
+                }
+            }
+        </script>

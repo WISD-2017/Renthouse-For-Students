@@ -10,9 +10,20 @@ use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
-    public function show()
+    public function show($num)
     {
-        $houses = DB::table('houses')->orderBy('house_id', 'desc')->Paginate(3);
+
+        if($num == 1){
+            $houses = DB::table('houses')->orderBy('house_id', 'desc')->Paginate(6);
+        }elseif ($num == 2){
+            $houses = DB::table('houses')->orderBy('click', 'desc')->Paginate(6);
+        }elseif ($num == 3){
+            $houses = DB::table('houses')->orderBy('house_id', 'desc')->Paginate(6);
+        }else{
+            $houses = DB::table('houses')->orderBy('house_id', 'desc')->Paginate(6);
+        }
+
+
         return view ('index',['houses' => $houses]);
     }
 
