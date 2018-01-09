@@ -41,6 +41,7 @@ class CreateHousesTable extends Migration
             $table->string('identity_requirements');
             $table->string('balcony');
             $table->string('others');
+            $table->integer('click');
             $table->string('file1');
             $table->string('file2');
             $table->string('file3');

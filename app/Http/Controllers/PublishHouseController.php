@@ -136,6 +136,7 @@ class PublishHouseController extends Controller
             'material'=>$request->material,
             'house_limit'=>$request->house_limit,
             'others'=>$request->others,
+            'click'=>'0',
             'file1'=>$filePath[0],
             'file2'=>$filePath[1],
             'file3'=>$filePath[2],
