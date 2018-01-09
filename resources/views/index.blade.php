@@ -109,12 +109,9 @@
                                 </button>
                             </div>
                             <h5 class="feed__itm__ttl">{{ $house->housename }}<span style="float: right; color: firebrick;">{{ '瀏覽人數：'.$house->click.' '}}</span></h5>
-                            <p class="feed__itm__lbl lbl--1">by {{ $house->contact.' '}}&nbsp;-&nbsp;
+                            <p class="feed__itm__lbl lbl--1">by {{ $house->contact.' '}}&nbsp;&nbsp;
                                 <span>
                                    {{ '#'.$house->housetype.' '}}
-                                    {{ '#'.$house->rental.' '}}
-                                    {{ '#'.$house->lease_term.' '}}
-                                    {{ '#'.$house->material.' '}}
                                 </span>
                             </p>
 
