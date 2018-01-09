@@ -71,9 +71,9 @@
     <section class="rslt">
         <div >
 
-            <button type="submit" class="layui-btn layui-btn-sm " value="lists" onclick="btn(this)">所有房屋</button>
-            <button type="submit" class="layui-btn layui-btn-sm  layui-btn-danger" value="hot_views"  onclick="btn(this)">＃熱門瀏覽</button>
-            <button type="submit" class="layui-btn layui-btn-sm  layui-btn-warm" value="hot_collcect"  onclick="btn(this)">＃熱門收藏</button>
+            <button type="submit" class="layui-btn layui-btn-radius  " value="lists" onclick="btn(this)">所有房屋</button>
+            <button type="submit" class="layui-btn layui-btn-radius   layui-btn-danger" value="hot_views"  onclick="btn(this)">＃熱門瀏覽</button>
+            <button type="submit" class="layui-btn  layui-btn-radius  layui-btn-warm" value="hot_collcect"  onclick="btn(this)">＃熱門收藏</button>
 
 
         </div>
@@ -108,7 +108,7 @@
                                     <i class="btn__seg ion ion-android-favorite"></i>
                                 </button>
                             </div>
-                            <h5 class="feed__itm__ttl">{{ $house->housename }}<span style="float: right; color: firebrick;font-size: small;">{{ '瀏覽人數：'.$house->click.' '}}</span></h5>
+                            <h5 class="feed__itm__ttl">{{ $house->housename }}<span style="float: right; color: firebrick;">{{ '瀏覽人數：'.$house->click.' '}}</span></h5>
                             <p class="feed__itm__lbl lbl--1">by {{ $house->contact.' '}}&nbsp;-&nbsp;
                                 <span>
                                    {{ '#'.$house->housetype.' '}}
@@ -147,7 +147,7 @@
             function btn($val){
                 switch($val.value) {
                     case 'lists':
-                        window.location.href = "/index/1";
+                        window.location.href = "/index";
                         break;
                     case 'hot_views':
                         window.location.href = "/index/2";

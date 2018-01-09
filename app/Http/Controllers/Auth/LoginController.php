@@ -29,7 +29,7 @@ class LoginController extends Controller
             $login = Session::get('login');
             Session::reflash();
 
-            return redirect('index/1')->with('login', $login);
+            return redirect('index')->with('login', $login);
 
         }else{
 

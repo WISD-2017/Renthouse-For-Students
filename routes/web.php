@@ -22,9 +22,9 @@ Route::get('/', function () {
 //首頁
 Route::group(['prefix' => 'index'], function() {
 
-    Route::get('/{num}',  'AuthController@show')->name('index'); //首頁
+    Route::get('/',  'AuthController@index')->name('index'); //首頁
 
-
+    Route::get('/{num}',  'AuthController@show')->name('index'); //(熱門瀏覽、收藏)
 
 });
 
