@@ -168,7 +168,7 @@
 
                                                 <td>
                                                     <!-- Large modal -->
-                                                  
+
                                                     <button type="button" class="btn btn-Primary" onclick="location.href='/admin/verify/{{ $landlord_data->user_id }}'" > 審核房屋</button>
 
 
