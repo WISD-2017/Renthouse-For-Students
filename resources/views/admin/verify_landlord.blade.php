@@ -129,7 +129,7 @@
                                                         <small>50% Complete</small>
                                                     @elseif(($landlord_data->status)==3)
                                                         <div class="progress progress_sm">
-                                                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="75"></div>
+                                                            <div class="progress-bar bg-red" role="progressbar" data-transitiongoal="75"></div>
                                                         </div>
                                                         <small>75% Complete</small>
                                                     @elseif(($landlord_data->status)==4)
@@ -157,7 +157,7 @@
                                                     @elseif(($landlord_data->status)==2)
                                                         <button type="button" class="btn btn-danger btn-xs"> 已刊登房屋 </button>
                                                     @elseif(($landlord_data->status)==3)
-                                                        <button type="button" class="btn btn-success btn-xs"> 待審核房屋 </button>
+                                                        <button type="button" class="btn btn-danger btn-xs"> 待審核房屋 </button>
                                                     @elseif(($landlord_data->status)==4)
                                                         <button type="button" class="btn btn-success btn-xs"> 審核完成 </button>
                                                     @endif
@@ -168,8 +168,10 @@
 
                                                 <td>
                                                     <!-- Large modal -->
-                                                    &nbsp;&nbsp;
+                                                  
                                                     <button type="button" class="btn btn-Primary" onclick="location.href='/admin/verify/{{ $landlord_data->user_id }}'" > 審核房屋</button>
+
+
                                                 </td>
 
 

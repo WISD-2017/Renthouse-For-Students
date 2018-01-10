@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\House;
+use App\User;
 
 class PublishHouseController extends Controller
 {
@@ -146,6 +147,7 @@ class PublishHouseController extends Controller
             'verify'=>'0',
 
         ]);
+        User::where('user_id', '=', $request->user_id)->update(['status' => 3 ]);
         return view ('publish.publish_success');
     }
 

@@ -12,7 +12,7 @@ class AuthController extends Controller
 {
     public function index()
     {
-        $houses = DB::table('houses')->orderBy('house_id', 'desc')->Paginate(6);
+        $houses = DB::table('houses')->where('verify','1')->orderBy('house_id', 'desc')->Paginate(6);
 
         return view ('index',['houses' => $houses]);
     }
