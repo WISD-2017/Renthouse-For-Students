@@ -84,7 +84,7 @@
             <h1 class="form-box__title">Login For administrator<p><p>請輸入管理人員的帳號密碼進行登入</p></h1>
             <br>
 
-            <form id="sign-up" method="post"  action="/auth/find" class="form form--log-in" enctype="multipart/form-data">
+            <form id="sign-up" method="post"  action="/admin/find" class="form form--log-in" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="login" value="true">
                 <label for="account" class="form__label">管理人員帳號：</label>
