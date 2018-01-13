@@ -1,25 +1,25 @@
 
 ## Renthouse For Students
 
-## 1.系統說明
+## 1. 系統說明
 
 專為學生所設計的租屋網，裡面所附的房屋圖片皆由[勤益科大租屋網](http://www.osa.ncut.edu.tw/2004/html/office/rent/index.asp)取得，圖片僅供系統展示用，不代表實際的租屋現況。
 
-## 2.其他說明
+## 2. 其他說明
 
 - [首頁樣板](
   https://dribbble.com/shots/1847266-Craigslist-Redesign?list=searches&tag=craigslist&offset=1)-by Tanveer Junayed  on Dec 15, 2014
 
 - [後臺樣板](https://github.com/puikinsh/gentelella)-Free Bootstrap 3 Admin Template
 
-## 3.功能項目
+## 3. 功能項目
 
 - 註冊功能(房客、房東)、登入功能(房客、房東、管理人員)
 - 房客：房屋收藏、比較功能
 - 房東：刊登房屋功能
 - 管理人員：審核學生身分以及審核房屋刊登資訊
 
-## 4.安裝說明
+## 4. 安裝說明
 
 - `git clone https://github.com/WISD-2017/Renthouse-For-Students.git`
 
@@ -63,3 +63,8 @@
 - 遷移(cmder) `php artisan migrate`
 
 - 寫入測試資料(cmder) `php artisan db:seed`
+
+## 5. [管理人員登入](http://localhost:8000/auth/login/3)
+
+- 帳號：　`admin`
+- 密碼：  `12345`
