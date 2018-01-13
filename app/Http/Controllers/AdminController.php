@@ -54,7 +54,7 @@ class AdminController extends Controller
             $login = Session::get('login');
             Session::reflash();
 
-            return redirect('index')->with('login', $login);
+            return redirect('admin/index')->with('login', $login);
 
         }else{
 
