@@ -1,51 +1,65 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Renthouse For Students
 
-## About Laravel
+## 1.系統說明
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+專為學生所設計的租屋網，裡面所附的房屋圖片皆由[勤益科大租屋網](http://www.osa.ncut.edu.tw/2004/html/office/rent/index.asp)取得，圖片僅供系統展示用，不代表實際的租屋現況。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 2.其他說明
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+- [首頁樣板](
+  https://dribbble.com/shots/1847266-Craigslist-Redesign?list=searches&tag=craigslist&offset=1)-by Tanveer Junayed  on Dec 15, 2014
 
-## Learning Laravel
+- [後臺樣板](https://github.com/puikinsh/gentelella)-Free Bootstrap 3 Admin Template
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+## 3.功能項目
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+- 註冊功能(房客、房東)、登入功能(房客、房東、管理人員)
+- 房客：房屋收藏、比較功能
+- 房東：刊登房屋功能
+- 管理人員：審核學生身分以及審核房屋刊登資訊
 
-## Laravel Sponsors
+## 4.安裝說明
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
+- `git clone https://github.com/WISD-2017/Renthouse-For-Students.git`
 
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
+- 專案復原與建置(開啟 cmder)
+    ``` 
+    $ cd {project name}
+    
+    $ composer install --no-scripts
+    
+    $ composer run-script post-root-package-install 
+    
+    $ composer run-script post-install-cmd
+    
+    $ composer run-script post-create-project-cmd
+    ```
+    
+- 建立新資料庫{project name} (於 [Mysql](http://localhost:8000/adminer) 內建立)
 
-## Contributing
+- .env檔修改及設定
+     ``` 
+     //修改
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=33060
+     DB_DATABASE={project name} (DB名稱，可自訂) 
+     DB_USERNAME=root
+     DB_PASSWORD=root
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+     ```
+     
+     ```
+     //信件設定 
+     MAIL_DRIVER=smtp
+     MAIL_HOST=smtp.gmail.com     
+     MAIL_PORT=587     
+     MAIL_USERNAME=your_username@gmail.com
+     MAIL_PASSWORD=your_password
+     MAIL_ENCRYPTION=tls
+     ```
+     
+- 遷移(cmder) `php artisan migrate`
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+- 寫入測試資料(cmder) `php artisan db:seed`
